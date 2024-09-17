@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #192a32;
+    display: grid;
+    place-items: center ;
+}
+
+
+
+main{
+    display: grid;
+    place-items: center ;
+}
+
+
+.changeBox1{
+    color: white;
+    width: 2rem;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.x{
+   fill: #35c3bf;
+   width: 2.6rem;
+   &:hover{
+    fill: #339b97;
+   }
+}
+
+.changeBox2{
+    color: white;
+    width: 2rem;
+    height: 2.5rem;
+    cursor: pointer;
+
+}
+
+.o{
+    fill: #f7b135;
+    width: 2.3rem;
+    &:hover{
+        fill: #b58531
+    }
+
+ }
+
+.turnBoxContainer{
+    color: white;
+    border: solid #1f3540 1px;
+    background-color: #1f3540;
+    width: 5rem;
+    height: 2rem;
+    margin-left: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+
+.xTurn{
+    fill: #35c3bf;
+    width: 1rem;
+ }
+
+ .turnBox{
+    font-size: .6rem;
+ }
+
+.resetBox{
+    color: white;
+    border: solid #a8bec9 1px;
+    background-color: #a8bec9;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: 3.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover{
+        background-color: #c0dae7;
+    }
+}
+
+.resetBox .reset{
+    fill: #1f3640;
+    width: 1.2rem;
+    height: 1.2rem;
+    /* margin-top: .5rem; */
+}
+
+#gameContainer {
+    background-color: #192a32;
+    color: white;
+    /* pendiente cambiar color segun el ejercicio */
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+    gap: 1rem;
+}
+
+.box {
+    width: 5rem;
+    height: 5rem;
+    font-size: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #1f3540;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover{
+        background-color: #2b4451;
+    }
+}
+
+.boxYou {
+    width: 5rem;
+    height: 3.5rem;
+    color: black;
+    background-color: #31c3be;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.boxTies {
+    width: 5rem;
+    height: 3.5rem;
+    color: black;
+    background-color:#a8bec9;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
+
+.boxCPU {
+    width: 5rem;
+    height: 3.5rem;
+    color: black;
+    background-color:#f2b237;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
+
+.span1,
+.span2,
+.span3{
+    font-size: .6rem;
+    font-weight: bold;
+}
+
+#modalContainer {
+    position: absolute;
+    background-color: #0c1319ad;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.Modal{
+    background-color: #1f3540;
+    width: 100%;
+}
+
+#youWon{
+    color: #a9bfc9;
+    font-size: .6rem;
+    margin-top: 1.4rem;
+    margin-bottom: .6rem;
+  
+}
+
+h3{
+    color: #2eb8b2;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.buttonModal{
+    margin-bottom: 1rem;
+    margin-top: .5rem;
+}
+
+#boxQuit{
+    font-size: .5rem;
+    font-weight: bold;
+    width: 2.5rem;
+    height: 1.5rem;
+    color: black;
+    background-color:#a8bec9;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
+
+#boxNext{
+    font-size: .5rem;
+    font-weight: bold;
+    width: 5rem;
+    height: 1.5rem;
+    color: black;
+    background-color:#f2b237;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+}
