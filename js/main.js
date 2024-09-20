@@ -1,44 +1,62 @@
-const turn = document.getElementById('.turnBox');
-const boxes = document.querySelector('#gameContainer'), X_or_O = 0;
+const turnX = document.querySelector('#xTurnBox');
+const turnO = document.querySelector('#oTurnBox');
+const boxes = document.querySelector('#gameContainer');
 const resetButton = document.querySelector('.resetButton');
-const modalContainer = document.querySelector('#modalContainer');
 const modalX = document.querySelector('.modalX');
 const modalO = document.querySelector('.modalO');
+const X = document.querySelector('.changeBox1');
+const O = document.querySelector('.changeBox2');
+const gameBoxes = document.querySelectorAll('.Box');
+const boxQuit= document.querySelector('#boxQuit');
+const boxNext= document.querySelector('#boxNext');
+
+
+let X_or_O = 0;
+let userChoice = '';
+
+
+gameBoxes.forEach(box => box.classList.add('disabled'));
 
 /* Eventos */
-resetButton.addEventListener('onclick',clear);
-boxes.addEventListener('click', initGame);
+boxes.addEventListener('click', game);
+X.addEventListener('click', () => selecChoice('X'));
+O.addEventListener('click', () => selecChoice('O'));
+boxQuit.addEventListener('click', quit);
+boxNext.addEventListener('click', next);
 
 /* Functions */
-function clear() {
-    let .innerHTML='';
-}
+function game(e) {
+    const game = e.target;
+    if (game.classList.contains('disabled')) return;
+    if (game.innerHTML !== "X" && game.innerHTML !== "O") {
+        if (X_or_O % 2 === 0) {
+            game.innerHTML = userChoice;
 
-function initGame() {
-    for (let i = 0; i < boxes.length; i++) {
-
-        if (this.innerHTML !== "X" && this.innerHTML !== "O") {
-            if (X_or_O % 2 === 0) {
-                console.log(X_or_O);
-                this.innerHTML = "X";
-                turn.innerHTML = "Es turno de O";
-                getWin();
-                X_or_O += 1;
-    
-            } else {
-                console.log(X_or_O);
-                this.innerHTML = "O";
-                turn.innerHTML = "Es turno de X";
-                getWin();
-                X_or_O += 1;
-            }
+        } else {
+            game.innerHTML = userChoice === 'X' ? 'O' : 'X'; // 
         }
-        
+        X_or_O += 1;
+        game.classList.add('disabled');
+        getWin();
     }
-
-    clear()
 }
 
+function selecChoice(choice) {
+    userChoice = choice;
+    if (choice === 'X') {
+        turnX.classList.remove('visually-hidden');
+        turnO.classList.add('visually-hidden');
+    } else {
+        turnO.classList.remove('visually-hidden');
+        turnX.classList.add('visually-hidden');
+    }
+    enableGameBoxes();
+    
+}
+
+function enableGameBoxes() {
+    gameBoxes.forEach(box => box.classList.remove('disabled'));
+}
 
 
 function WinBoxes(b1, b2, b3) {
@@ -46,15 +64,34 @@ function WinBoxes(b1, b2, b3) {
     b2.classList.add("win");
     b3.classList.add("win");
     modalContainer.classList.remove('visually-hidden');
-    if (b1.innerHTML === 'X') {
+    if (b1.innerHTML === "X") {
         modalX.classList.remove('visually-hidden');
     } else {
         modalO.classList.remove('visually-hidden');
     }
 }
 
-function getWin() {
+function resetGame() {
+    X_or_O = 0;
+    userChoice = '';
+    gameBoxes.forEach(box => {
+        box.innerHTML = '';
+        box.classList.remove('disabled');
+    });
+    turnX.classList.add('visually-hidden');
+    turnO.classList.add('visually-hidden');
+    gameBoxes.forEach(box => box.classList.add('disabled')); 
+}
 
+function quit() {
+    
+}
+
+function next() {
+    modalContainer.classList.add('visually-hidden')
+}
+
+function getWin() {
     let box1 = document.getElementById("box1"),
         box2 = document.getElementById("box2"),
         box3 = document.getElementById("box3"),
@@ -88,5 +125,4 @@ function getWin() {
 
     if (box3.innerHTML !== "" && box3.innerHTML === box5.innerHTML && box3.innerHTML === box7.innerHTML)
         WinBoxes(box3, box5, box7);
-
 }

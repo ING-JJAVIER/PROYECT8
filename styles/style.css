@@ -64,8 +64,12 @@ main{
     border-radius: 10px;
 }
 
-.xTurn{
+#xTurn{
     fill: #35c3bf;
+    width: 1rem;
+ }
+ #oTurn{
+    fill: #f7b135;
     width: 1rem;
  }
 
@@ -123,6 +127,9 @@ main{
     background-color: #1f3540;
     border-radius: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover{
         background-color: #2b4451;
     }
@@ -214,6 +221,13 @@ h3{
     display: flex;
     justify-content: center;
     align-items:center ;
+    cursor: pointer;
+    &:hover{
+        background-color:#d9e2e7;
+    }
+    &:active{
+        font-size: .6rem;
+    }
 }
 
 #boxNext{
